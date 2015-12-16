@@ -2,7 +2,7 @@
 #static is here mvpland_static
 #postgresql -- mvpland
 #username -- stenterje
-DBPASS = 'Lynving3'
+DBPASS = '*******'
 
 
 """
@@ -46,7 +46,7 @@ if not settings.DEBUG:
 
 	EMAIL_HOST = 'smtp.gmail.com'
 	EMAIL_HOST_USER = 'terje.falnes@gmail.com'
-	EMAIL_HOST_PASSWORD = 'Lynving2'
+	EMAIL_HOST_PASSWORD = '******'
 	EMAIL_PORT = 587
 	EMAIL_USE_TLS = True
 
