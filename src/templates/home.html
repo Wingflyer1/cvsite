@@ -22,14 +22,14 @@
 
      
 {% block jumbotron %}
- {% if not request.user.is_authenticated %}
+<!-- {% if not request.user.is_authenticated %} -->
 
 <div class="jumbotron">
  <div class="container">
 	<div class="row">
 		<div class='col-sm-6'>
 		<h1>Sten Terje Falnes</h1>
-		<p>Hei, denne siden er laget for å gi en presentasjon av meg. En form for CV. <p>Du må logge på for å gå innom de forskjellige sidene om meg.</p> <p>Til høyre kan du se mitt siste prosjekt, digitalisert farledsbevis --> eFarledsbeviset. Les mer om farledsbeviset  <a href="http://www.kystverket.no/farledsbevis" target="_blank">her</a>.</p>
+		<p>Hei, denne siden er laget for å gi en yrkesmessig presentasjon av meg. En elektronsik CV. <p>Logg på for å se mer.</p> <p>Videoen viser mitt siste prosjekt, digitalisert farledsbevis --> eFarledsbeviset. Les mer om farledsbeviset  <a href="http://www.kystverket.no/farledsbevis" target="_blank">her</a>.</p>
 		<p>
 		<a class="btn btn-lg btn-primary" href="" role="button">Få min CV på e-post &raquo;</a>
 		</p>
@@ -48,8 +48,8 @@
 
 
 {% block content %}
- {% if request.user.is_authenticated %}
-<h1>Du er logget inn!</h1>
+ {% if not request.user.is_authenticated %}
+<h1>Du må logge inn for å se min CV!</h1>
 
 	{% if queryset %}
 	<h2>Velkommen - administrator</h2>

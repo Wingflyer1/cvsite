@@ -3,3 +3,4 @@ Lib
 Scripts
 passwords.py
 *.pyc
+*.sqlite3
