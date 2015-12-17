@@ -2,7 +2,6 @@
 #static is here mvpland_static
 #postgresql -- mvpland
 #username -- stenterje
-DBPASS = '*******'
 
 
 """
@@ -23,6 +22,7 @@ from django.conf import settings
 
 if not settings.DEBUG:
 	import os
+	from .passwords import DBPASS, GMAILPASS
 
 	BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 	#root of project
@@ -46,7 +46,7 @@ if not settings.DEBUG:
 
 	EMAIL_HOST = 'smtp.gmail.com'
 	EMAIL_HOST_USER = 'terje.falnes@gmail.com'
-	EMAIL_HOST_PASSWORD = '******'
+	EMAIL_HOST_PASSWORD = 'uftx yakf wuhb kgxc'
 	EMAIL_PORT = 587
 	EMAIL_USE_TLS = True
 
@@ -111,7 +111,9 @@ if not settings.DEBUG:
 
 	# Database
 	# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
+	
+	
+	
 	DATABASES = {
 	    'default': {
 	        'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -162,7 +164,8 @@ if not settings.DEBUG:
 	#DJANGO REGISTRATION REDUX SETTINGS
 	ACCOUNT_ACTIVATION_DAYS = 7
 	REGISTRATION_AUTO_LOGIN = True
-	SITE_ID = 1
+	from django.contrib.sites.shortcuts import get_current_site
+	SITE_ID = 2
 	LOGIN_REDIRECT_URL = '/'
 
 
