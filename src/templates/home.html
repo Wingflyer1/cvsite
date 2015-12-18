@@ -20,7 +20,6 @@
 
      
 {% block jumbotron %}
-<!-- {% if not request.user.is_authenticated %} -->
 
 <div class="jumbotron">
  <div class="container">
@@ -41,5 +40,74 @@
  </div>
 
 {% endblock %}
+
+
+{% block content %}
+ {% if not request.user.is_authenticated %}
+<h1>Du må logge inn for å se min CV!</h1>
+
+	{% else %}
+ 
+
+<div class="row">
+
+  <div class="col-sm-3 pull-right">
+  	
+			<p class='lead text-align-center'>{{ title }}</p>
+
+			<form method='POST' action=''>{% csrf_token %}
+			{{ form|crispy }}
+
+			<input class='btn btn-primary' type='submit' value='Sign Up' />
+
+			</form>
+	</div>
+
+	<div class='col-sm-3'>
+<p class='lead text-align-center'>Skoler & Kurs</p>
+			<img src='{% static "img/marketing1.jpg" %}' class='img-responsive' />
+</div>
+
+<div class='col-sm-3'>
+<p class='lead text-align-center'>Karriere 
+<br/>
+<span class='fa-stack fa-lg fa-5x'>
+<i class='fa fa-comment-o fa-stack-2x'></i>
+<i style='color:yellow;' class="fa fa-bolt fa-stack-1x"></i>
+
+</span>
+</p>
+
+</div>
+
+<div class='col-sm-3'>
+<p class='lead text-align-center'>Mine oppnåelser <br/><br/>
+
+<span class="fa-stack fa-lg fa-5x">
+<i class="fa fa-circle-o-notch fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x"></i>
+</span>
+</p>
+
+
+</div>
+
+
+</div>
+{% endif %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
