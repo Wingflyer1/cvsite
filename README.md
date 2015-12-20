@@ -1,9 +1,4 @@
-#currently having trouble with home.html - suspects very small fix?? 
-
 # my site is for a norwegian crowd - it is my electronic CV.
-
-# cvsite
-
 
 # Remember:
 

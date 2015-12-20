@@ -24,14 +24,17 @@
 <div class="jumbotron">
  <div class="container">
 	<div class="row">
-		<div class='col-sm-6'>
+		<div class='col-md-6'>
 		<h1>Sten Terje Falnes</h1>
-		<p>Hei, denne siden er laget for å gi en yrkesmessig presentasjon av meg. En elektronsik CV. <p>Logg på for å se mer.</p> <p>Videoen viser mitt siste prosjekt, digitalisert farledsbevis --> eFarledsbeviset. Les mer om farledsbeviset  <a href="http://www.kystverket.no/farledsbevis" target="_blank">her</a>.</p>
-		<p>
-		<a class="btn btn-lg btn-primary" href="" role="button">Få min CV på e-post &raquo;</a>
-		</p>
+		<p>Hei, denne siden er laget for å gi en yrkesmessig presentasjon av meg.</p>
+		<p>Videoen viser mitt siste prosjekt, "e-Farledsbevis".</p>
+		<!--<p>Les mer om farledsbeviset  <a href="http://www.kystverket.no/farledsbevis" target="_blank">her</a>.</p>-->
+		{% if not request.user.is_authenticated %}
+		<p>Logg inn for å se mer.</p>
+
+		{% endif %}
 		</div>
-		<div class='col-sm-6' >			
+		<div class='col-md-6' >
 			<iframe width="560" height="315" src="https://www.youtube.com/embed/no3K9f5x0aw?list=PLQ3VqW26gKgQQb0i4zvfdE9wWBdTg-ko-" frameborder="0" allowfullscreen></iframe>
 
  		</div>
@@ -46,8 +49,30 @@
  {% if not request.user.is_authenticated %}
 <h1>Du må logge inn for å se min CV!</h1>
 
-	{% else %}
- 
+{% endif %}
+
+{% if queryset and request.user.is_authenticated %}
+<div class="row">
+	<div class="col-md-6 col-md-offset-2">
+<table>
+	<th style="color:Green;">Latest signups</th>
+	<tr style="color:Blue;"><td>E-mail</td><td>Full name</td></tr>
+	{% for instanse in queryset %}
+	<tr>
+		<td>
+			{{ instanse.email }}
+		</td>
+		<td>
+			{{ instanse.full_name }}
+		</td>
+	</tr>
+
+	{% endfor %}
+	</div>
+</table>
+</div>
+
+{% elif request.user.is_authenticated %}
 
 <div class="row">
 
@@ -64,12 +89,12 @@
 	</div>
 
 	<div class='col-sm-3'>
-<p class='lead text-align-center'>Skoler & Kurs</p>
+<p><a href="{% url 'education' %}" class='lead text-align-center'>Skoler & Kurs</a></p>
 			<img src='{% static "img/marketing1.jpg" %}' class='img-responsive' />
 </div>
 
 <div class='col-sm-3'>
-<p class='lead text-align-center'>Karriere 
+<p><a href="{% url 'experience' %}" class='lead text-align-center'>Karriere</a></p>
 <br/>
 <span class='fa-stack fa-lg fa-5x'>
 <i class='fa fa-comment-o fa-stack-2x'></i>

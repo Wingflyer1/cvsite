@@ -75,6 +75,8 @@ if not settings.DEBUG:
 	    'registration',
 	    #my apps
 	    'newsletter',
+		'education',
+    	'experience',
 	)
 
 	MIDDLEWARE_CLASSES = (

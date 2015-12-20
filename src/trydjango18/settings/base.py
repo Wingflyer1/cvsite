@@ -54,10 +54,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #third party apps
-    #'crispy_forms',
-    #'registration',
+    'crispy_forms',
+    'registration',
     #my apps
     'newsletter',
+    'education',
+    'experience',
 )
 
 MIDDLEWARE_CLASSES = (

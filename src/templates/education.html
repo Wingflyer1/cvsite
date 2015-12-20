@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+
+{% block head_title %}Welcome | {{ block.super }}{% endblock %}
+
+<style>
+{% block style %}
+.navbar-static-top {
+	margin-bottom: 0px !important;
+}
+.jumbotron {
+	background-color:#0E3D14;
+	color: #FFF;
+}
+{% endblock %}
+</style>
+
+{% block content %}
+ {% if not request.user.is_authenticated %}
+<h1> {{ message }}</h1>
+
+	{% else %}
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h1> {{ title }}</h1>
+
+        <table style="border:black solid 2px;">
+            <tr style="color:Blue;"><td>Skole</td><td style="padding-left:15px;">Kurs/Fag</td><td style="padding-left:15px;">Påbegynt</td><td style="padding-left:20px;">Avsluttet</td></tr>
+            {% for instanse in queryset %}
+            <tr>
+                <td style="padding-left:5px; padding-bottom:10px;">{{ instanse.school }}</td>
+                <td style="padding-left:20px; padding-bottom:10px;">{{ instanse.course }}</td>
+                <td style="padding-left:20px; padding-bottom:10px;">  {{ instanse.year_from }}</td>
+                <td style="padding-left:25px; padding-bottom:10px;">  {{ instanse.year_to }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+
+</div>
+
+{% endif %}
+
+{% endblock %}
+
+
+
+
+
