@@ -40,16 +40,14 @@
                 <td style="padding-left:15px;">Arb.giver</td>
                 <td style="padding-left:15px;">Stilling</td>
                 <td style="padding-left:15px;">Oppgaver</td>
-                <td style="padding-left:20px;">Startet</td>
-            <td style="padding-left:20px;">Sluttet</td></tr>
+                <td style="padding-left:20px;">Periode</td></tr>
             {% for instanse in queryset %}
             <tr class="{% cycle 'grey' 'lightgrey' %}">
                 <td style="padding-right:15px; padding-bottom:10px;">{{ forloop.revcounter }}</td>
                 <td style="padding-left:5px; padding-bottom:10px;" colspand="1">{{ instanse.employer }}</td>
                 <td style="padding-left:20px; padding-bottom:10px;">{{ instanse.position }}</td>
                 <td style="padding-left:20px; padding-bottom:10px;">{{ instanse.chores }}</td>
-                <td style="padding-left:20px; padding-bottom:10px;">  {{ instanse.year_from.year }}</td>
-                <td style="padding-left:20px; padding-bottom:10px;">  {{ instanse.year_to.year }}</td>
+                <td style="padding-left:20px; padding-bottom:10px;">  {{ instanse.year_from.year }} - {{ instanse.year_to.year }}</td>
 
             </tr>
             {% endfor %}
