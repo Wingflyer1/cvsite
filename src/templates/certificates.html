@@ -28,17 +28,16 @@
         <table>
             <tr style="color:Blue;" class="color1">
                 <td>Nr.</td>
-                <td>Skole</td>
-                <td>Kurs/Fag</td>
-                <td>Periode</td>
+                <td>Sertifikatnavn</td>
+                <td>Merknad</td>
+                <td>Gyldig</td>
             </tr>
             {% for instanse in queryset %}
             <tr class="{% cycle 'color2' 'color1' %}">
                 <td>{{ forloop.revcounter }}</td>
-                <td>{{ instanse.school }}</td>
-                <td>{{ instanse.course }}</td>
-                <td class="period">  {{ instanse.year_from.year }} -
-                {{ instanse.year_to.year }}</td>
+                <td>{{ instanse.certificate }}</td>
+                <td>{{ instanse.comment }}</td>
+                <td class="period">{{ instanse.valid_from.year }} - {{ instanse.valid_to.year }} </td>
             </tr>
             {% endfor %}
         </table>

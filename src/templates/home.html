@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 
-{% block head_title %}Welcome | {{ block.super }}{% endblock %}
+{% block head_title %}Velkommen | {{ block.super }}{% endblock %}
 
 <style>
 {% block style %}
@@ -109,10 +109,10 @@
 </div>
 
 <div class='col-sm-4 text-align-center'>
-<p class='lead'>Mine oppnåelser <br/><br/>
+<p class='lead'><a href="{% url 'certificates' %}">Mine sertifikater <br/><br/>
 <span class="fa-stack fa-lg fa-2x">
 <!--<i class="fa fa-circle-o-notch fa-stack-1x"></i>-->
-<i style='color:black' class="fa fa-star-o fa-3x"></i>
+<i style='color:black' class="fa fa-certificate fa-3x"></i>
 </span>
 </p>
 

@@ -1,26 +1,16 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
 {% load staticfiles %}
 
 
-{% block head_title %}Welcome | {{ block.super }}{% endblock %}
+{% block head_title %}Velkommen | {{ block.super }}{% endblock %}
 
 <style>
 {% block style %}
 .navbar-static-top {
 	margin-bottom: 0px !important;
 }
-.jumbotron {
-	background-color:#0E3D14;
-	color: #FFF;
-}
-.lightgrey {
-    background-color:#e6e6e6;
-    }
-.grey {
-    background-color:#cccccc;
-    }
 
+{% include 'tables.css' %}
 {% endblock %}
 </style>
 
@@ -35,19 +25,19 @@
         <h1> {{ title }}</h1>
 
         <table>
-            <tr style="color:Blue;" class="lightgrey">
+            <tr style="color:Blue;" class="color1">
                 <td>Nr.</td>
-                <td style="padding-left:15px;">Arb.giver</td>
-                <td style="padding-left:15px;">Stilling</td>
-                <td style="padding-left:15px;">Oppgaver</td>
-                <td style="padding-left:20px;">Periode</td></tr>
+                <td>Arb.giver</td>
+                <td>Stilling</td>
+                <td>Oppgaver</td>
+                <td>Periode</td></tr>
             {% for instanse in queryset %}
-            <tr class="{% cycle 'grey' 'lightgrey' %}">
-                <td style="padding-right:15px; padding-bottom:10px;">{{ forloop.revcounter }}</td>
-                <td style="padding-left:5px; padding-bottom:10px;" colspand="1">{{ instanse.employer }}</td>
-                <td style="padding-left:20px; padding-bottom:10px;">{{ instanse.position }}</td>
-                <td style="padding-left:20px; padding-bottom:10px;">{{ instanse.chores }}</td>
-                <td style="padding-left:20px; padding-bottom:10px;">  {{ instanse.year_from.year }} - {{ instanse.year_to.year }}</td>
+            <tr class="{% cycle 'color2' 'color1' %}">
+                <td>{{ forloop.revcounter }}</td>
+                <td>{{ instanse.employer }}</td>
+                <td>{{ instanse.position }}</td>
+                <td>{{ instanse.chores }}</td>
+                <td class="period">  {{ instanse.year_from.year }} - {{ instanse.year_to.year }}</td>
 
             </tr>
             {% endfor %}

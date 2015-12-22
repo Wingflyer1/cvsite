@@ -77,6 +77,7 @@ if not settings.DEBUG:
 	    'newsletter',
 		'education',
     	'experience',
+		'certificates',
 	)
 
 	MIDDLEWARE_CLASSES = (

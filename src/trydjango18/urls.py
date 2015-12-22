@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^about/$', 'trydjango18.views.about', name='about'),
     url(r'^education/$', 'education.views.education', name='education'),
     url(r'^experience/$', 'experience.views.experience', name='experience'),
+    url(r'^certificates/$', 'certificates.views.certificates', name='certificates'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),

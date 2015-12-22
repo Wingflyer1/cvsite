@@ -60,6 +60,7 @@ INSTALLED_APPS = (
     'newsletter',
     'education',
     'experience',
+    'certificates',
 )
 
 MIDDLEWARE_CLASSES = (
