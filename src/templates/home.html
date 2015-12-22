@@ -74,43 +74,45 @@
 
 {% elif request.user.is_authenticated %}
 
-<div class="row">
+<!--<div class="row">-->
+<!--<div class="col-sm-3 pull-right">-->
+<!--<p class='lead text-align-center'>{{ title }}</p>-->
+<!--<form method='POST' action=''>{% csrf_token %}-->
+<!--{{ form|crispy }}-->
+<!--<input class='btn btn-primary' type='submit' value='Sign Up' />-->
+<!--</form>-->
+<!--</div>-->
+<!--</div>-->
 
-  <div class="col-sm-3 pull-right">
-  	
-			<p class='lead text-align-center'>{{ title }}</p>
-
-			<form method='POST' action=''>{% csrf_token %}
-			{{ form|crispy }}
-
-			<input class='btn btn-primary' type='submit' value='Sign Up' />
-
-			</form>
-	</div>
-
-	<div class='col-sm-3'>
-<p><a href="{% url 'education' %}" class='lead text-align-center'>Skoler & Kurs</a></p>
-			<img src='{% static "img/marketing1.jpg" %}' class='img-responsive' />
+<div class='col-sm-4 text-align-center'>
+<p class="lead"><a href="{% url 'education' %}">Skoler & Kurs
+<br></p>
+<p>
+<spand class="fa-stack fa-lg fa-5x">
+<i style='color:black;' class="fa fa-graduation-cap fa-2x"></i>
+</spand>
+</a>
 </div>
+</p>
 
-<div class='col-sm-3'>
-<p><a href="{% url 'experience' %}" class='lead text-align-center'>Karriere</a></p>
-<br/>
-<span class='fa-stack fa-lg fa-5x'>
-<i class='fa fa-comment-o fa-stack-2x'></i>
-<i style='color:yellow;' class="fa fa-bolt fa-stack-1x"></i>
-
+<div class='col-sm-4 text-align-center'>
+<p class="lead"><a href="{% url 'experience' %}" >Karriere
+<br/></p>
+<p>
+<span class='fa-stack fa-lg fa-5x' >
+<i style='color:black;' class='fa fa-cogs fa-stack-2x'></i>
+<!--<i style='color:yellow;' class="fa fa-bolt fa-stack-2x"></i>-->
 </span>
+</a>
 </p>
 
 </div>
 
-<div class='col-sm-3'>
-<p class='lead text-align-center'>Mine oppnåelser <br/><br/>
-
-<span class="fa-stack fa-lg fa-5x">
-<i class="fa fa-circle-o-notch fa-stack-2x"></i>
-<i class="fa fa-github fa-stack-1x"></i>
+<div class='col-sm-4 text-align-center'>
+<p class='lead'>Mine oppnåelser <br/><br/>
+<span class="fa-stack fa-lg fa-2x">
+<!--<i class="fa fa-circle-o-notch fa-stack-1x"></i>-->
+<i style='color:black' class="fa fa-star-o fa-3x"></i>
 </span>
 </p>
 
