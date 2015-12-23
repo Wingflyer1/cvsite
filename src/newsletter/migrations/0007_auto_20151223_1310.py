@@ -7,7 +7,7 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('newsletter', '0005_auto_20151215_1910'),
+        ('newsletter', '0006_auto_20151223_0937'),
     ]
 
     operations = [
@@ -19,6 +19,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='signup',
             name='full_name',
-            field=models.CharField(verbose_name='Fullt navn', max_length=120, null=True, blank=True),
+            field=models.CharField(verbose_name='Fullt navn', null=True, max_length=120, blank=True),
         ),
     ]

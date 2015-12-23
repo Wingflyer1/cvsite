@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import models, migrations
+from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('position', models.CharField(max_length=120, null=True)),
                 ('chores', models.TextField(null=True)),
                 ('year_from', models.DateField()),
-                ('year_to', models.DateField()),
+                ('year_to', models.DateField(null=True, blank=True)),
                 ('timestamp', models.DateTimeField(auto_now_add=True)),
                 ('updated', models.DateTimeField(auto_now=True)),
             ],

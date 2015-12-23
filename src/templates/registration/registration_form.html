@@ -6,7 +6,7 @@
 {% block content %}
 <div class='row'>
 <div class='col-sm-6 col-sm-offset-3'>
-<h1>Register for free!</h1>
+<h1>Registrering</h1>
 <form method="post" action=".">
   {% csrf_token %}
   {{ form|crispy }}
@@ -19,7 +19,7 @@
 <hr/>
 <div class='row'>
 <div class='col-sm-6 col-sm-offset-3 text-align-center'>
-<p>Need to <a href="{% url 'auth_login' %}">Login</a>?</p>
+<p>Vil du heller <a href="{% url 'auth_login' %}">Logge inn</a>?</p>
 </div>
 </div>
 

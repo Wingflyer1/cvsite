@@ -7,13 +7,13 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('experience', '0001_initial'),
+        ('certificates', '0002_certificates_comment'),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='experience',
-            name='year_to',
-            field=models.DateField(null=True, blank=True),
+            model_name='certificates',
+            name='comment',
+            field=models.CharField(null=True, max_length=120, default='', blank=True),
         ),
     ]

@@ -1,1 +1,1 @@
-Complete Registration for {{ site.name }}
+Fullfør din registrering for {{ site.name }}

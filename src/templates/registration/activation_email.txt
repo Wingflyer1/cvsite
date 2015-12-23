@@ -1,13 +1,16 @@
 {% load i18n %}
 {% trans "Activate account at" %} {{ site.name }}:
 
-Hello there!
+Heisann!
 
-Click the link below to activate your account.
+Når du har klikket på linken under får du tilgang til alle sidene som angår min CV.
+Benytt kontaktskjemaet på siden dersom du ønsker å gi meg en tilbakemelding.
 
 http://{{ site.domain }}{% url 'registration_activate' activation_key %}
 
 
 {% blocktrans %}The above link is valid for {{ expiration_days }} days.{% endblocktrans %}
 
--Team CFE
+Vennlig hilsen
+Sten Terje Falnes
+e-post: terje@falnes.com

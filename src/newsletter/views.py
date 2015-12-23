@@ -50,7 +50,6 @@ def home(request):
 def contact(request):
 	title = 'Send meg en melding:'
 	title_align_center = True
-	button_text = 'Send\ meldingen'
 	form = ContactForm(request.POST or None)
 	if form.is_valid():
 		# for key, value in form.cleaned_data.iteritems():
@@ -59,29 +58,26 @@ def contact(request):
 		form_email = form.cleaned_data.get("epost")
 		form_message = form.cleaned_data.get("melding")
 		form_full_name = form.cleaned_data.get("ditt_navn")
-		# print email, message, full_name
-		subject = 'Sten Terje Falnes - CV kontakt skjema'
+		
+		subject = 'Sten Terje Falnes - Kontakt skjema'
 		from_email = settings.EMAIL_HOST_USER
 		to_email = [from_email, 'sten.terje.falnes@kystverket.no']
-		contact_message = "%s har sendt deg en beskjed:\r\n %s \n\r \n\rvia %s"%( 
+		contact_message ="%s har sendt deg en beskjed: %s via %s" %( 
 				form_full_name, 
 				form_message, 
 				form_email)
-		#some_html_message = """
-		#<h1>hello</h1>
-		#"""
+				
 		send_mail(subject, 
 				contact_message, 
 				from_email, 
 				to_email, 
-				#html_message=some_html_message,
+		#		html_message=some_html_message,
 				fail_silently=True)
 
 	context = {
 		"form": form,
 		"title": title,
 		"title_align_center": title_align_center,
-		"button_text": button_text,
 	}
 	return render(request, "forms.html", context)
 
