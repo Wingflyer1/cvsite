@@ -26,7 +26,7 @@ def home(request):
 		# 	instance.full_name = "Justin"
 		instance.save()
 		context = {
-			"title": "Thank you"
+			"title": "Takk, \n du vil om litt motta en PDF versjon av min CV til din e-post."
 		}
 
 	if request.user.is_authenticated() and request.user.is_staff:
@@ -48,38 +48,40 @@ def home(request):
 
 
 def contact(request):
-	title = 'Contact Us'
+	title = 'Send meg en melding:'
 	title_align_center = True
+	button_text = 'Send\ meldingen'
 	form = ContactForm(request.POST or None)
 	if form.is_valid():
 		# for key, value in form.cleaned_data.iteritems():
 		# 	print key, value
 		# 	#print form.cleaned_data.get(key)
-		form_email = form.cleaned_data.get("email")
-		form_message = form.cleaned_data.get("message")
-		form_full_name = form.cleaned_data.get("full_name")
+		form_email = form.cleaned_data.get("epost")
+		form_message = form.cleaned_data.get("melding")
+		form_full_name = form.cleaned_data.get("ditt_navn")
 		# print email, message, full_name
-		subject = 'Site contact form'
+		subject = 'Sten Terje Falnes - CV kontakt skjema'
 		from_email = settings.EMAIL_HOST_USER
-		to_email = [from_email, 'youotheremail@email.com']
-		contact_message = "%s: %s via %s"%( 
+		to_email = [from_email, 'sten.terje.falnes@kystverket.no']
+		contact_message = "%s har sendt deg en beskjed:\r\n %s \n\r \n\rvia %s"%( 
 				form_full_name, 
 				form_message, 
 				form_email)
-		some_html_message = """
-		<h1>hello</h1>
-		"""
+		#some_html_message = """
+		#<h1>hello</h1>
+		#"""
 		send_mail(subject, 
 				contact_message, 
 				from_email, 
 				to_email, 
-				html_message=some_html_message,
+				#html_message=some_html_message,
 				fail_silently=True)
 
 	context = {
 		"form": form,
 		"title": title,
 		"title_align_center": title_align_center,
+		"button_text": button_text,
 	}
 	return render(request, "forms.html", context)
 
