@@ -25,5 +25,6 @@ def certificates(request):
 			"queryset": queryset,
 			'title': title
 		}
-
+		
 	return render(request, "certificates.html", context)
+	

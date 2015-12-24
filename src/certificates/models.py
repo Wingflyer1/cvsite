@@ -1,5 +1,5 @@
 from django.db import models
-
+from datetime import date
 # Create your models here.
 
 class Certificates(models.Model):
@@ -9,3 +9,9 @@ class Certificates(models.Model):
     valid_to = models.DateField()
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def is_expired(self):
+        present = date.today()
+        if present > self.valid_to:
+            return True
+        return False
