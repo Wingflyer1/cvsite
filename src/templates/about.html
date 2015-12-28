@@ -1,18 +1,58 @@
 {% extends "base.html" %}
+<style>
+{% block style %}
+.navbar-static-top {
+	margin-bottom: 0px !important;
+}
 
+{% include 'tables.css' %}
 
-
+{% endblock %}
+</style>
 {% block content %}
 
 <div class='row'>
-<div class='col-sm-6 col-sm-offset-3'>
-<h1>Kort om meg</h1>
-<p>Denne siden skal inneholde litt informasjon om meg, om ting som kanskje ikke er direkte knyttet til min profesjon eller noen av mine jobber. Kom innom igjen senere og se om jeg har rukket å oppdatere den??</p>
-<p>Takk for besøket!</p>
-<p></p>
-</div>
+    <div class='col-md-8 col-md-offset-2'>
+        <h1>Kort om meg</h1>
+        <br>
+        <p>Først og fremst takk, hyggelig at du vil bli kjent med meg.</p>
+        <p>Jeg er vokst opp i Åkrehamn på Karmøy, en vestlandsbygd som vokste frem basert seg på kombinert gårds- og fiskebruk. Jeg ble verken fisker
+        eller gårdsgutt, men har i det minste gått den maritime veien i min karriere.</p>
+        <p>Jeg fant tidlig glede i snekring, først hytter og etter hvert også noen "borger" når mine søstre var på krigsstien.<br>
+        Jeg synes det fortsatt er givende å kunne "skape" noe med bare en tanke og litt kunnskap.<p>
 
-</div>
+        <p>Etter gjennomført allmennfaglig videregående søkte jeg meg til Sjøforsvarets Befalskurs, og klarte å
+        vinne en plass der i 1996. De neste 15 årene bare "fløy" av gårde.</p>
 
+        <p>Jeg er også leken av meg og spiller brettspill, simulator-spill og liker å prøve nye ting. Konkurranse er gøy, både mot seg selv og andre.</p>
+
+        <p>De siste årene har jeg skiftet arbeidssted fra sjø til land. I stedet for operasjonsledelse er det nå blitt mer prosjektledelse,
+            for å få til en fin konvertering fant jeg det nyttig å gjennomføre et prosjektlederstudie hos BI, mest for at ord og uttrykk skulle bli riktige for
+        landtjenesten.</p>
+
+        <p>Helt til slutt vil jeg også nevne min interesse for programmering. Som du kanskje ser så er denne elektroniske-CV'en selvlagtet.
+        Helt fra barneår har jeg interessert meg for 1-ere og 0-ere (data: bits & bytes) og har bygget mine egne maskiner. De siste årene har
+        jeg gjennomført noen kurs i programmering og tilegnet meg oppdaterte kunnskaper i web-publishing og grunnleggende forståelse for programmerings.</p>
+        <br>
+
+        <p>Bruk gjerne <a href="{% url 'contact' %}">kontakt siden</a> og gi meg en tilbakemelding på det du har lest.</p>
+
+        <p>Takk for besøket og på gjensyn!</p>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <p class="lead text-align-center">Til slutt litt standard info:</p>
+        <table style="border:solid green 2px; width:100%;">
+            {% for key, value in personal.viewitems %}
+            <tr class="{% cycle 'color2' 'color1' %}">
+                <td> {{ key }}</td><td> {{ value }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+</div>
 
 {% endblock %}
