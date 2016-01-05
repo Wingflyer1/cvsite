@@ -37,8 +37,9 @@
   </head>
 
   <body>
-{% include 'navbar.html' %}
-
+  {% block navbar %}
+	{% include 'navbar.html' %}
+ {% endblock %}
 {% block jumbotron %}
           
             {% endblock %}
@@ -47,8 +48,77 @@
 
           
             {% block content %}
+ {% if not request.user.is_authenticated %}
+<h1>Du må logge inn for å se min CV!</h1>
 
-            {% endblock %}
+{% endif %}
+
+{% if request.user.is_authenticated and request.user.is_staff %}
+<div class="row">
+	<div class="col-md-6 col-md-offset-2">
+<table>
+	<th style="color:Green;">Latest signups</th>
+	<tr style="color:Blue;"><td>E-mail</td><td>Full name</td></tr>
+	{% for instanse in queryset %}
+	<tr>
+		<td>
+			{{ instanse.email }}
+		</td>
+		<td>
+			{{ instanse.full_name }}
+		</td>
+	</tr>
+
+	{% endfor %}
+	</div>
+</table>
+</div>
+
+{% elif request.user.is_authenticated and not request.user.is_staff %}
+
+
+<div class='col-sm-4 text-align-center'>
+<p class="lead"><a href="{% url 'education' %}" >Skoler & Kurs
+<br></p>
+<p>
+<spand class="fa-stack fa-lg fa-5x">
+<i style='color:black;' class="fa fa-graduation-cap fa-2x"></i>
+</spand>
+</a>
+</div>
+</p>
+
+<div class='col-sm-4 text-align-center'>
+<p class="lead"><a href="{% url 'experience' %} " >Karriere
+<br/></p>
+<p>
+<span class='fa-stack fa-lg fa-5x' >
+<i style='color:black;' class='fa fa-cogs fa-stack-2x'></i>
+<!--<i style='color:yellow;' class="fa fa-bolt fa-stack-2x"></i>-->
+</span>
+</a>
+</p>
+
+</div>
+
+<div class='col-sm-4 text-align-center'>
+<p class='lead'><a href="{% url 'certificates' %}" >Mine sertifikater <br/></p>
+<p>
+<span class="fa-stack fa-lg fa-5x">
+<!--<i class="fa fa-circle-o-notch fa-stack-1x"></i>-->
+<i style='color:black' class="fa fa-certificate fa-2x"></i>
+</span>
+</a>
+</p>
+
+
+</div>
+
+
+</div>
+{% endif %}
+
+{% endblock %}
               
 
     </div> <!-- /container -->

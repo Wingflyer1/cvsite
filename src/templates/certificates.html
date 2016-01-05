@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{% block head_title %}Velkommen | {{ block.super }}{% endblock %}
+{% block head_title %} Terje   {% endblock %}
 
 <style>
 {% block style %}
@@ -24,7 +24,7 @@
     <div class="col-md-10 col-md-offset-1">
         <h1> {{ title }}</h1>
 
-        <table>
+        <table style="width:100%;">
             <tr style="color:Blue;" class="color1">
                 <td>Nr.</td>
                 <td>Sertifikatnavn</td>
@@ -41,7 +41,7 @@
         </table>
     </div>
 </div>
-
+{{ block.super }}
 {% endif %}
 
 {% endblock %}

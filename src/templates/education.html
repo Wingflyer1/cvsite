@@ -8,12 +8,14 @@
 {% block style %}
 .navbar-static-top {
 	margin-bottom: 0px !important;
+	min-height:100px !important;
 }
 
 {% include 'tables.css' %}
 
 {% endblock %}
 </style>
+
 
 {% block content %}
  {% if not request.user.is_authenticated %}
@@ -25,7 +27,7 @@
     <div class="col-md-10 col-md-offset-1">
         <h1> {{ title }}</h1>
 
-        <table>
+        <table style="width:100%;">
             <tr style="color:Blue;" class="color1">
                 <td>Nr.</td>
                 <td>Skole</td>
@@ -44,7 +46,7 @@
         </table>
     </div>
 </div>
-
+{{ block.super }}
 {% endif %}
 
 {% endblock %}
