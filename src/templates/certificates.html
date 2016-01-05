@@ -28,15 +28,13 @@
             <tr style="color:Blue;" class="color1">
                 <td>Nr.</td>
                 <td>Sertifikatnavn</td>
-                <td>Merknad</td>
                 <td>Gyldig til</td>
 
             </tr>
             {% for instanse in queryset %}
             <tr class="{% cycle 'color2' 'color1' %}">
                 <td>{{ forloop.revcounter }}</td>
-                <td>{{ instanse.certificate }}</td>
-                <td>{{ instanse.comment }}</td>
+                <td>{{ instanse.certificate }}</td>             
                 <td> {% if instanse.is_expired %} Utgått {% else %} {{ instanse.valid_to.year }} {% endif %} </td>
             </tr>
             {% endfor %}
